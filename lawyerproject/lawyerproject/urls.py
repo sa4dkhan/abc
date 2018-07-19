@@ -12,7 +12,7 @@ urlpatterns = [
     path('dashboard/', include('dashboard.urls')),
     path('role', include('role.urls')),
     path('account/', include('account.urls')),
-    #path('client/', include('dashboard.urls')),
+    path('client/', include('dashboard.urls')),
     path('users/', include('users.urls')),
 
 ]

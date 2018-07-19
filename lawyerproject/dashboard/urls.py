@@ -4,7 +4,7 @@ from .views import client_info, client_list, update_client, client_dashboard, st
 
 urlpatterns = [
     path('', views.index, name='dashboard_index'),
-    # path('dashboard', client_dashboard, name='client_dashboard'),
+    path('dashboard/<int:id>', client_dashboard, name='client_dashboard'),
     path('client/', client_info, name='client_info'),
     path('client_list/', client_list, name='client_list'),
     path('update_client/<int:id>', update_client, name='update_client'),

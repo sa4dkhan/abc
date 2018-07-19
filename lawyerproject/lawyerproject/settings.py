@@ -105,7 +105,7 @@ WSGI_APPLICATION = 'lawyerproject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'lawyerapp',
+        'NAME': 'lawyer_db',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',

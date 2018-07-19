@@ -11,8 +11,9 @@ def index(request):
     return render(request, 'admin/admin-home.html')
 
 
-def client_dashboard(request):
-    return render(request, 'clients/client-home.html')
+def client_dashboard(request, id):
+    client = Client.objects.get(id=id)
+    return render(request, 'clients/client-home.html', {'client': client})
 
 
 def client_info(request):
