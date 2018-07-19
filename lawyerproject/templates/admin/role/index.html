@@ -1,0 +1,61 @@
+
+{% extends 'admin/master.html' %}
+{% load static from staticfiles %}
+
+{% block title %} Role List {% endblock %}
+
+{% block mainbody %}
+    <div class="row bg-title">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+           <ol class="breadcrumb">
+                <li class="active breadcrumbColor"><a href="{% url 'dashboard_index' %}"><i class="fa fa-home"></i> Dashboard</a></li>
+                <li>Role List</li>
+
+            </ol>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <a href="{% url 'role_create' %}"  class="btn btn-info pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"> <i class="fa fa-plus-circle" aria-hidden="true"></i> Add New Role</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+             <div class="panel panel-info">
+                    <div class="panel-heading"><i class="mdi mdi-table fa-fw"></i> Role List</div>
+                    <div class="panel-wrapper collapse in" aria-expanded="true">
+                        <div class="panel-body">
+                          <div class="table-responsive">
+                            <table id="myTable" class="table table-bordered">
+                                <thead class="">
+                                    <tr class="tr_header">
+                                        <th style="width: 10%">S/L</th>
+                                        <th>Role Name</th>
+                                        <th style="width: 10%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for value in results %}
+                                        <tr class="{{ value.id }}">
+                                            <td>{{ forloop.counter }}</td>
+                                            <td>{{ value.role_name }}</td>
+                                            <td>
+                                                <a href="{% url 'role_update' value.id %}"  class="btn btn-info btn-md btnColor">
+                                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                </a>
+
+                                                <a href="{% url 'role_delete' value.id %}" data-id="{{ value.id }}"   class="delete btn btn-danger btn-md deleteBtn btnColor">
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                          </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock mainbody %}

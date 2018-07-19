@@ -1,0 +1,112 @@
+
+{% extends 'admin/master.html' %}
+
+{% load static from staticfiles %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block mainbody %}
+
+{#<div style="text-align: center;">#}
+{#<form method="POST" class="form-control" style="padding: 50px;">#}
+{#    {% csrf_token %}#}
+{#    {{ form.as_p }}#}
+{#    <button type="submit">save</button>#}
+{#</form>#}
+{##}
+{#</div>#}
+    <div class="row bg-title">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <ol class="breadcrumb">
+                <li class="active breadcrumbColor"><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
+                <li>Add Client</li>
+
+            </ol>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <a href="{% url 'client_list' %}"  class="btn btn-info pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"><i class="fa fa-list-ul" aria-hidden="true"></i>  View Client </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading"><i class="mdi mdi-clipboard-text fa-fw"></i> Add Client</div>
+                <div class="panel-wrapper collapse in" aria-expanded="true">
+                    <div class="panel-body">
+                        <form action="{% url 'store_client' %}" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                             {% csrf_token %}
+                            <div class="form-body">
+                               <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Image</label>
+                                            <div class="col-md-9">
+                                                <input type="file" class="form-control" name="client_pic" placeholder=""> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-body">
+                               <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">First Name</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="first_name" placeholder="Enter First Name"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-body">
+                               <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Last Name</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="last_name" placeholder="Enter Last Name"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-body">
+                               <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Mobile Number</label>
+                                            <div class="col-md-9">
+                                                <input type="number" class="form-control" name="mobile_number" placeholder="Enter Mobile Number"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Email Address</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="email_address" placeholder="Enter Email Address"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-offset-3 col-md-9">
+                                                <button type="submit" class="btn btn-info btn_style "><i class="fa fa-check"></i> Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"> </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock mainbody %}

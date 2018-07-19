@@ -1,0 +1,173 @@
+
+{% extends 'admin/master.html' %}
+{% load static from staticfiles %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block mainbody %}
+       
+    <div class="row bg-title">
+        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+            <ol class="breadcrumb">
+                <li class="active breadcrumbColor"><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
+                <li>Forms</li>
+
+            </ol>
+        </div>
+        <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+            <a href=""  class="btn btn-success pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"><i class="fa fa-list-ul" aria-hidden="true"></i>  View Data</a>
+        </div>
+
+        <!-- /.col-lg-12 -->
+    </div>
+
+
+    <!--./row-->
+    <!--.row-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading"><i class="mdi mdi-clipboard-text fa-fw"></i> With Horizontal two column</div>
+                <div class="panel-wrapper collapse in" aria-expanded="true">
+                    <div class="panel-body">
+                        <form action="form-layout.html" method="POST">
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputuname">User Name</label>
+                                            <input type="text" class="form-control" id="exampleInputuname" placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputuname">User Name</label>
+                                            <input type="text" class="form-control" id="exampleInputuname" placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputuname">User Name</label>
+                                            <input type="text" class="form-control" id="exampleInputuname" placeholder="Username">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputuname">User Name</label>
+                                            <input type="text" class="form-control" id="exampleInputuname" placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputuname">User Name</label>
+                                            <input type="text" class="form-control" id="exampleInputuname" placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputuname">User Name</label>
+                                            <input type="text" class="form-control" id="exampleInputuname" placeholder="Username">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputuname">User Name</label>
+                                            <input type="text" class="form-control" id="exampleInputuname" placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputuname">User Name</label>
+                                            <input type="text" class="form-control" id="exampleInputuname" placeholder="Username">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="exampleInputuname">User Name</label>
+                                            <input type="text" class="form-control" id="exampleInputuname" placeholder="Username">
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="submit" class="btn btn-info btn_style"><i class="fa fa-check"></i> Submit</button>
+                                        <button type="submit" class="btn btn-info btn_style"><i class="fa fa-pencil"></i> Edit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--.row-->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading"><i class="mdi mdi-clipboard-text fa-fw"></i> With Horizontal two column</div>
+                <div class="panel-wrapper collapse in" aria-expanded="true">
+                    <div class="panel-body">
+                        <form action="#" class="form-horizontal">
+                            <div class="form-body">
+                               <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Address 1</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Address 1</label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                               <div class="row">
+                                    <div class="col-md-6">
+                                       <div class="form-group">
+                                            <label class="control-label col-md-3">Country</label>
+                                            <div class="col-md-9">
+                                                <select class="form-control">
+                                                    <option>Country 1</option>
+                                                    <option>Country 2</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-offset-3 col-md-9">
+                                                <button type="submit" class="btn btn-info btn_style"><i class="fa fa-check"></i> Submit</button>
+                                                <button type="submit" class="btn btn-info btn_style"><i class="fa fa-pencil"></i> Edit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"> </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+     
+			
+{% endblock mainbody %}

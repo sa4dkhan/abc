@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en-US">
+{% block head %}
+    {% include 'head.html' %}
+{% endblock head %}
+
+{% block customcss %}
+{% endblock customcss %}
+
+<body>
+{% block navbar %}
+    {% include 'navbar.html' %}
+{% endblock navbar %}
+
+{% block mainbody %}
+{% endblock mainbody %}
+
+{% block footer %}
+    {% include 'footer.html' %}
+{% endblock footer %}
+
+{% block footerjs %}
+    {% include 'footerjs.html' %}
+{% endblock footerjs %}
+
+{% block customjs %}
+
+{% endblock customjs %}
+
+</body>
+</html>

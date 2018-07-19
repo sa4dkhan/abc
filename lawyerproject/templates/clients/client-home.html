@@ -1,0 +1,274 @@
+
+{% extends 'clients/master.html' %}
+{% load static from staticfiles %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block mainbody %}
+
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+						<ol class="breadcrumb">
+							<li class="active breadcrumbColor"><a href="#"><i class="fa fa-home"></i> Client Dashboard</a></li>
+						</ol>
+					</div>
+                </div>
+                <!-- /.row -->
+                <!-- ============================================================== -->
+                <!-- Different data widgets -->
+                <!-- ============================================================== -->
+                <!-- .row -->
+                <div class="row">
+                    <div class="col-lg-3 col-sm-6 col-xs-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">Total Visit</h3>
+                            <ul class="list-inline two-part">
+                                <li>
+                                    <div id="sparklinedash"></div>
+                                </li>
+                                <li class="text-right"><i class="ti-arrow-up text-success"></i> <span class="counter text-success">659</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-xs-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">Total Page Views</h3>
+                            <ul class="list-inline two-part">
+                                <li>
+                                    <div id="sparklinedash2"></div>
+                                </li>
+                                <li class="text-right"><i class="ti-arrow-up text-purple"></i> <span class="counter text-purple">869</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-xs-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">Unique Visitor</h3>
+                            <ul class="list-inline two-part">
+                                <li>
+                                    <div id="sparklinedash3"></div>
+                                </li>
+                                <li class="text-right"><i class="ti-arrow-up text-info"></i> <span class="counter text-info">911</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-6 col-xs-12">
+                        <div class="white-box analytics-info">
+                            <h3 class="box-title">Bounce Rate</h3>
+                            <ul class="list-inline two-part">
+                                <li>
+                                    <div id="sparklinedash4"></div>
+                                </li>
+                                <li class="text-right"><i class="ti-arrow-down text-danger"></i> <span class="text-danger">18%</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--/.row -->
+
+                <!-- ============================================================== -->
+                <!-- Recent comment, table & feed widgets -->
+                <!-- ============================================================== -->
+
+                <!-- ============================================================== -->
+                <!-- calendar widgets -->
+                <!-- ============================================================== -->
+                <div class="row">
+
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                        <div class="panel">
+                            <div class="panel-heading">MANAGE USERS</div>
+                            <div class="table-responsive">
+                                <table class="table table-hover manage-u-table">
+                                    <thead>
+                                        <tr>
+                                            <th style="width: 70px;" class="text-center">#</th>
+                                            <th>NAME</th>
+                                            <th>OCCUPATION</th>
+                                            <th>EMAIL</th>
+                                            <th>CATEGORY</th>
+                                            <th>MANAGE</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="text-center">1</td>
+                                            <td><span class="font-medium">Daniel Kristeen</span>
+                                                <br/><span class="text-muted">Texas, Unitedd states</span></td>
+                                            <td>Visual Designer
+                                                <br/><span class="text-muted">Past : teacher</span></td>
+                                            <td>daniel@website.com
+                                                <br/><span class="text-muted">999 - 444 - 555</span></td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Modulator</option>
+                                                    <option>Admin</option>
+                                                    <option>User</option>
+                                                    <option>Subscriber</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                               <a href="" ><button type="button" class="btn btn-danger btn-circle btn-lg m-r-5"><i class="icon-trash"></i></button></a>
+                                                 <a href="" ><button type="button" class="btn btn-success  btn-circle btn-lg m-r-5"><i class="ti-pencil-alt"></i></button></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">2</td>
+                                            <td><span class="font-medium">Daniel Kristeen</span>
+                                                <br/><span class="text-muted">Texas, Unitedd states</span></td>
+                                            <td>Visual Designer
+                                                <br/><span class="text-muted">Past : teacher</span></td>
+                                            <td>daniel@website.com
+                                                <br/><span class="text-muted">999 - 444 - 555</span></td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Modulator</option>
+                                                    <option>Admin</option>
+                                                    <option>User</option>
+                                                    <option>Subscriber</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                               <a href="" ><button type="button" class="btn btn-danger btn-circle btn-lg m-r-5"><i class="icon-trash"></i></button></a>
+                                                 <a href="" ><button type="button" class="btn btn-success  btn-circle btn-lg m-r-5"><i class="ti-pencil-alt"></i></button></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">3</td>
+                                            <td><span class="font-medium">Daniel Kristeen</span>
+                                                <br/><span class="text-muted">Texas, Unitedd states</span></td>
+                                            <td>Visual Designer
+                                                <br/><span class="text-muted">Past : teacher</span></td>
+                                            <td>daniel@website.com
+                                                <br/><span class="text-muted">999 - 444 - 555</span></td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Modulator</option>
+                                                    <option>Admin</option>
+                                                    <option>User</option>
+                                                    <option>Subscriber</option>
+                                                </select>
+                                            </td>
+                                            <td>
+												<a href="" ><button type="button" class="btn btn-danger btn-circle btn-lg m-r-5"><i class="icon-trash"></i></button></a>
+                                                <a href="" ><button type="button" class="btn btn-success  btn-circle btn-lg m-r-5"><i class="ti-pencil-alt"></i></button></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">4</td>
+                                            <td><span class="font-medium">Daniel Kristeen</span>
+                                                <br/><span class="text-muted">Texas, Unitedd states</span></td>
+                                            <td>Visual Designer
+                                                <br/><span class="text-muted">Past : teacher</span></td>
+                                            <td>daniel@website.com
+                                                <br/><span class="text-muted">999 - 444 - 555</span></td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Modulator</option>
+                                                    <option>Admin</option>
+                                                    <option>User</option>
+                                                    <option>Subscriber</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                               <a href="" ><button type="button" class="btn btn-danger btn-circle btn-lg m-r-5"><i class="icon-trash"></i></button></a>
+                                                <a href="" ><button type="button" class="btn btn-success  btn-circle btn-lg m-r-5"><i class="ti-pencil-alt"></i></button></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">5</td>
+                                            <td><span class="font-medium">Daniel Kristeen</span>
+                                                <br/><span class="text-muted">Texas, Unitedd states</span></td>
+                                            <td>Visual Designer
+                                                <br/><span class="text-muted">Past : teacher</span></td>
+                                            <td>daniel@website.com
+                                                <br/><span class="text-muted">999 - 444 - 555</span></td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Modulator</option>
+                                                    <option>Admin</option>
+                                                    <option>User</option>
+                                                    <option>Subscriber</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                               <a href="" ><button type="button" class="btn btn-danger btn-circle btn-lg m-r-5"><i class="icon-trash"></i></button></a>
+                                                <a href="" ><button type="button" class="btn btn-success  btn-circle btn-lg m-r-5"><i class="ti-pencil-alt"></i></button></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">6</td>
+                                            <td><span class="font-medium">Daniel Kristeen</span>
+                                                <br/><span class="text-muted">Texas, Unitedd states</span></td>
+                                            <td>Visual Designer
+                                                <br/><span class="text-muted">Past : teacher</span></td>
+                                            <td>daniel@website.com
+                                                <br/><span class="text-muted">999 - 444 - 555</span></td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Modulator</option>
+                                                    <option>Admin</option>
+                                                    <option>User</option>
+                                                    <option>Subscriber</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <a href="" ><button type="button" class="btn btn-danger btn-circle btn-lg m-r-5"><i class="icon-trash"></i></button></a>
+                                                <a href="" ><button type="button" class="btn btn-success  btn-circle btn-lg m-r-5"><i class="ti-pencil-alt"></i></button></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">7</td>
+                                            <td><span class="font-medium">Daniel Kristeen</span>
+                                                <br/><span class="text-muted">Texas, Unitedd states</span></td>
+                                            <td>Visual Designer
+                                                <br/><span class="text-muted">Past : teacher</span></td>
+                                            <td>daniel@website.com
+                                                <br/><span class="text-muted">999 - 444 - 555</span></td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Modulator</option>
+                                                    <option>Admin</option>
+                                                    <option>User</option>
+                                                    <option>Subscriber</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <a href="" ><button type="button" class="btn btn-danger btn-circle btn-lg m-r-5"><i class="icon-trash"></i></button></a>
+                                                <a href="" ><button type="button" class="btn btn-success  btn-circle btn-lg m-r-5"><i class="ti-pencil-alt"></i></button></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-center">8</td>
+                                            <td><span class="font-medium">Daniel Kristeen</span>
+                                                <br/><span class="text-muted">Texas, Unitedd states</span></td>
+                                            <td>Visual Designer
+                                                <br/><span class="text-muted">Past : teacher</span></td>
+                                            <td>daniel@website.com
+                                                <br/><span class="text-muted">999 - 444 - 555</span></td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Modulator</option>
+                                                    <option>Admin</option>
+                                                    <option>User</option>
+                                                    <option>Subscriber</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                               <a href="" ><button type="button" class="btn btn-danger btn-circle btn-lg m-r-5"><i class="icon-trash"></i></button></a>
+                                                <a href="" ><button type="button" class="btn btn-success  btn-circle btn-lg m-r-5"><i class="ti-pencil-alt"></i></button></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- ============================================================== -->
+                <!-- chats, message & profile widgets -->
+
+                </div>
+
+
+{% endblock mainbody %}

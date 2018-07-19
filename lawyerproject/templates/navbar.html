@@ -1,0 +1,568 @@
+{% load static from staticfiles %}
+{% block navbar %}
+    <section class="top-menu-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="top-menu-ul-wrapper">
+                        <ul>
+                            <li><strong>Phone :</strong> <span>+ 2 0106 5370701</span></li>
+                            <li><strong>Email :</strong> <span> matchalawyer@email.com</span></li>
+
+                            <li><a href="{% url 'account:login' %}">Sign In</a> / <a href="{% url 'account:signup' %}">Sign Up</a></li>
+{#                            <li>#}
+{#                                <a href=""#}
+{#                                       data-toggle="modal"#}
+{#                                       data-target="#ajax"#}
+{#                                       data-url="{% url 'signup' %}">Ajax Sign Up#}
+{#                                </a>#}
+{#                            </li>#}
+{#                            <li>#}
+{#                                <a href=""#}
+{#                                       data-toggle="modal"#}
+{#                                       data-target="#ajax"#}
+{#                                       data-url="{% url 'login' %}">Ajax Sign In#}
+{#                                </a>#}
+{#                            </li>#}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="main-menu-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<nav class="navbar navbar-expand-md home-page-menu">
+					<a class="navbar-brand" href="#">
+						<img src="{% static 'mystyle/images/logo.png' %}" alt="Logo">
+					</a>
+					<button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+						<i class="fa fa-bars" aria-hidden="true"></i>
+					</button>
+
+					<div class="navbar-collapse collapse" id="navbarsExampleDefault" style="">
+						<ul id="menu-header-menu" class="navbar-nav ml-auto">
+							<li class="menu-item nav-item current-menu-item dropdown">
+							        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							          Lawyer directory
+							        </a>
+							        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<div class="container">
+							            <div class="row">
+							              <div class="col-md-3">
+							                <span class="magamenu-title text-uppercase ">Bankruptcy & Debt</span>
+							                <ul class="nav flex-column mega-menu-ul">
+							                <li class="nav-item">
+							                  <a class="nav-link active" href="sub-category.php">Debt collection</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Debt settlement</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Credit repair lawyers</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Chapter 13 bankruptcy</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Chapter 11 bankruptcy</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Chapter 7 bankruptcy</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">More...</a>
+							                </li>
+							               </ul>
+
+							              <span class="magamenu-title text-uppercase ">Business</span>
+							                <ul class="nav flex-column mega-menu-ul">
+							                <li class="nav-item">
+							                  <a class="nav-link active" href="#">Tax</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Entertainment</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Contracts</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Insurance</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">LLC</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Franchising</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">More...</a>
+							                </li>
+							              </ul>
+							              </div>
+
+							              <!-- /.col-md-4  -->
+							              <div class="col-md-3">
+							                <ul class="nav flex-column mega-menu-ul">
+							                	 <span class="magamenu-title text-uppercase ">Criminal Defense</span>
+
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">DUI and DWI</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Speeding and traffic tickets</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Federal crime</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Juvenile</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Sex crime</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Expungement</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">More...</a>
+							                </li>
+							               </ul>
+
+							              <span class="magamenu-title text-uppercase ">Employment & Labor</span>
+							                <ul class="nav flex-column mega-menu-ul">
+							                <li class="nav-item">
+							                  <a class="nav-link active" href="#">Workers compensation</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Social security</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Wrongful termination</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Sexual harassment</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Discrimination</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">More...</a>
+							                </li>
+							               </ul>
+							              </div>
+
+							              <!-- /.col-md-4  -->
+							              <div class="col-md-3">
+							              	 <ul class="nav flex-column mega-menu-ul">
+							                <span class="magamenu-title text-uppercase ">Estate Planning</span>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Probate</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Elder law</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Trusts</a>
+							                </li>
+							                 <li class="nav-item">
+							                  <a class="nav-link" href="#">Wills and living wills</a>
+							                </li>
+							                 <li class="nav-item">
+							                  <a class="nav-link" href="#">Power of attorney</a>
+							                </li>
+							                 <li class="nav-item">
+							                  <a class="nav-link" href="#">Guardianship</a>
+							                </li>
+							                 <li class="nav-item">
+							                  <a class="nav-link" href="#">More...</a>
+							                </li>
+											</ul>
+											<span class="magamenu-title text-uppercase ">Family</span>
+							                <ul class="nav flex-column mega-menu-ul">
+							                <li class="nav-item">
+							                  <a class="nav-link active" href="#">Divorce and separation</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Child custody</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Domestic violence</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Child support</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Adoption</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Child abuse</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">More...</a>
+							                </li>
+
+							              </ul>
+							              </div>
+							              <!-- /.col-md-4  -->
+
+							               <!-- /.col-md-4  -->
+							              <div class="col-md-3">
+							              	 <ul class="nav flex-column mega-menu-ul">
+							                <span class="magamenu-title text-uppercase ">Personal Injury</span>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Medical malpractice</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Wrongful death</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Car accidents</a>
+							                </li>
+							                 <li class="nav-item">
+							                  <a class="nav-link" href="#">Slip and fall accident</a>
+							                </li>
+							                 <li class="nav-item">
+							                  <a class="nav-link" href="#">Libel and slander</a>
+							                </li>
+							                 <li class="nav-item">
+							                  <a class="nav-link" href="#">Nursing home abuse</a>
+							                </li>
+							                 <li class="nav-item">
+							                  <a class="nav-link" href="#">More...</a>
+							                </li>
+											</ul>
+											<span class="magamenu-title text-uppercase ">Other</span>
+							                <ul class="nav flex-column mega-menu-ul">
+							                <li class="nav-item">
+							                  <a class="nav-link active" href="#">Civil rights</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Appeals</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Lemon law</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Litigation</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Lawsuits and disputes</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Education</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">See all practice areas...</a>
+							                </li>
+
+							              </ul>
+							              </div>
+							              <!-- /.col-md-4  -->
+							            </div>
+							          </div>
+							          <!--  /.container  -->
+
+
+							        </div>
+							      </li>
+
+								<li class="menu-item nav-item dropdown">
+							        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							          legal topics
+							        </a>
+							        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<div class="container">
+							            <div class="row">
+							              <div class="col-md-4">
+							                <span class="magamenu-title text-uppercase ">Guides & articles</span>
+							                <ul class="nav flex-column mega-menu-ul">
+							                <li class="nav-item">
+							                  <a class="nav-link active" href="#">Business</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Child custody</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Criminal defense</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">DUI</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Divorce</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Employment</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Immigration</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Landlord or tenant</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Personal injury</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Prenuptial agreement</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Traffic tickets</a>
+							                </li>
+							                <li class="start-your-research-here">
+							                  <a class="nav-link" href="#">start your research here</a>
+							                </li>
+							              </ul>
+							              </div>
+							              <!-- /.col-md-4  -->
+							              <div class="col-md-4">
+							                <ul class="nav flex-column mega-menu-ul">
+							                	 <span class="magamenu-title text-uppercase ">Legal advice</span>
+
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Business advice</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Child custody advice</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Criminal defense advice</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">DUI advice</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Divorce advice</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Immigration advice</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Landlord or tenant advice</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Personal injury advice</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Prenuptial agreement advice</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Traffic tickets advice</a>
+							                </li>
+							              </ul>
+							              </div>
+							              <!-- /.col-md-4  -->
+							              <div class="col-md-4">
+							              	 <ul class="nav flex-column mega-menu-ul">
+							                <span class="magamenu-title text-uppercase ">Free questions and answers</span>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Post an anonymous question on our forum and get free advice from </a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">multiple lawyers</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Post a question </a>
+							                </li>
+											</ul>
+							              </div>
+							              <!-- /.col-md-4  -->
+							            </div>
+							          </div>
+							          <!--  /.container  -->
+
+
+							        </div>
+							      </li>
+
+
+								<li class="menu-item nav-item dropdown">
+							        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							          legal forms
+							        </a>
+							        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<div class="container">
+							            <div class="row">
+							              <div class="col-md-7">
+							                <span class="magamenu-title text-uppercase ">Free legal forms</span>
+							               <ul class="nav flex-column mega-menu-ul">
+							                <li class="nav-item">
+							                  <a class="nav-link active" href="#">Create your legal document in minutes. Add your details, save your work, and invite</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">others to add their electronic signature.</a>
+							                </li>
+							               </ul>
+							                  <div class="row">
+							               <div class="col-md-6">
+								               	<ul class="nav flex-column mega-menu-ul">
+									                <li class="nav-item">
+									                  <a class="nav-link active" href="#">Business </a>
+									                </li>
+									                <li class="nav-item">
+									                  <a class="nav-link" href="#">Family </a>
+									                </li>
+								               </ul>
+							           		</div>
+							               <div class="col-md-6">
+							               	<ul class="nav flex-column mega-menu-ul">
+									                <li class="nav-item">
+									                  <a class="nav-link active" href="#">Estate planning </a>
+									                </li>
+									                <li class="nav-item">
+									                  <a class="nav-link" href="#">Real estate  </a>
+									                </li>
+								               </ul>
+							               </div>
+							               <div class="choose-your-legal-form">
+							                  <a class="nav-link" href="#">choose your legal form</a>
+							                </div>
+							                  </div>
+							              </div>
+							              <!-- /.col-md-4  -->
+							              <div class="col-md-5">
+							                <ul class="nav flex-column mega-menu-ul">
+							                	 <span class="magamenu-title text-uppercase ">Top forms</span>
+
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Bill of sale (vehicle)</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Codicil</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Consulting agreement</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Durable power of attorney</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Non-disclosure agreement (one-way)</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Prenuptial agreement</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Residential lease agreement</a>
+							                </li>
+							                <li class="nav-item">
+							                  <a class="nav-link" href="#">Tenant’s notice to vacate</a>
+							                </li>
+							            </ul>
+							              </div>
+							              <!-- /.col-md-4  -->
+
+							            </div>
+							          </div>
+							          <!--  /.container  -->
+
+
+							        </div>
+							      </li>
+
+							<li class="menu-item"><a href="#">talk to a lawyer</a></li>
+							<li class="menu-item "><a href="#">Blog</a></li>
+						    <li class="menu-item"><a href="contact-us/">Contact</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- The Modal -->
+  <div class="modal fade" id="signup-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+          <!-- Modal Header -->
+        <div class="modal-header signin-signup-top-header">
+          <div class="signin-signup-title">
+          <ul class="nav nav-tabs" role="tablist">
+			    <li class="nav-item">
+			      <a class="nav-link active" data-toggle="tab" href="#signin">Sign In</a>
+			    </li>
+			    <li class="nav-item">
+			      <a class="nav-link" data-toggle="tab" href="#signup">Sign Up</a>
+			    </li>
+
+			  </ul>
+      	    </div>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body">
+        	<div class="modal-logo-start">
+        		<img src="{% static 'mystyle/images/logo.png' %}" alt="Logo">
+        	</div>
+  		<div class="tab-content">
+        	<div class="signin-form-wrapper container tab-pane active" id="signin">
+         		<form action="/action_page.php">
+		    		<div class="form-group">
+			    		<input type="text" class="form-control" placeholder="Mobile/Email" id="email">
+			  		</div>
+			  		<div class="form-group">
+			    		<input type="password" class="form-control" placeholder="password" id="pwd">
+			  		</div>
+			  		<div class="form-group"><fieldset class="clearfix"><div class="pull-right"><a href="http://orko-web-v2.test/forgotPassword">Forgot password ?</a></div></fieldset></div>
+			  		<fieldset>
+			  			<button type="submit" class="btn  btn-block btn-lg"> Login</button>
+			  		</fieldset>
+			  		<div class="col-md-12 or-css"><p>OR</p></div>
+
+			  		<div class="col-md-12 facebook-link-css">
+			  			<fieldset><a href="http://orko-web-v2.test//fb/redirect/SignIn" role="	  button" class="btn btn-block btn-lg custom_link_btn">
+			  				<i class="fa fa-facebook-official"></i>
+			  				 Sign In With Facebook </a>
+			  			</fieldset>
+			  		</div>
+				</form>
+			</div>
+			<div class="signup-form-wrapper container tab-pane" id="signup">
+         		<form method="post" >
+                    {% csrf_token %}
+{#                    {{ form }}#}
+                    {% include 'includes/bs4_form.html' with form=form %}
+{#		    		<div class="form-group">#}
+{#			    		<input type="text" class="form-control" placeholder="Full Name" id="email">#}
+{#			  		</div>#}
+{#			  		<div class="form-group">#}
+{#			    		<input type="text" class="form-control" placeholder="Email address " id="email">#}
+{#			  		</div>#}
+{#			  		<div class="form-group">#}
+{#			    		<input type="text" class="form-control" placeholder="Mobile Number" id="email">#}
+{#			  		</div>#}
+{#			  		<div class="form-group">#}
+{#			    		<input type="password" class="form-control" placeholder="password" id="pwd">#}
+{#			  		</div><div class="form-group">#}
+{#			    		<input type="password" class="form-control" placeholder="confirm Password" id="pwd">#}
+{#			  		</div>#}
+{#			  		<div class="form-group"><fieldset class="clearfix"><div class="pull-right"><a href="http://orko-web-v2.test/forgotPassword">Forgot password ?</a></div></fieldset></div>#}
+			  		<fieldset>
+			  			<button  type="submit" class="btn btn-block btn-lg" id="form-submit"> Join Now</button>
+			  		</fieldset>
+			  		<div class="col-md-12 or-css"><p>OR</p></div>
+
+			  		<div class="col-md-12 facebook-link-css">
+			  			<fieldset><a href="http://orko-web-v2.test//fb/redirect/SignIn" role="button" class="btn btn-block btn-lg custom_link_btn">
+			  				<i class="fa fa-facebook-official"></i>
+			  				 Sign In With Facebook </a>
+			  			</fieldset>
+			  		</div>
+				</form>
+			</div>
+		</div>
+        </div>
+
+        <!-- Modal footer -->
+        <div class="modal-footer"></div>
+
+
+      </div>
+    </div>
+  </div>
+{% endblock navbar %}
+

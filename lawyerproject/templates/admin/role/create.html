@@ -1,0 +1,64 @@
+
+{% extends 'admin/master.html' %}
+{% load static from staticfiles %}
+
+{% block title %} Add Role {% endblock %}
+
+{% block mainbody %}
+       
+    <div class="row bg-title">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <ol class="breadcrumb">
+                <li class="active breadcrumbColor"><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
+                <li>Add Role</li>
+
+            </ol>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <a href="{% url 'role_index' %}"  class="btn btn-info pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"><i class="fa fa-list-ul" aria-hidden="true"></i>  View Role </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading"><i class="mdi mdi-clipboard-text fa-fw"></i> Add Role</div>
+                <div class="panel-wrapper collapse in" aria-expanded="true">
+                    <div class="panel-body">
+
+                        <form action="{% url 'role_create' %}" class="form-horizontal" method="post">
+                             {% csrf_token %}
+                            <div class="form-body">
+                               <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Role Name<span class="required_field">*</span></label>
+                                            <div class="col-md-9">
+                                                <input type="text" class="form-control" name="role_name" placeholder="Enter Role" value="{{ form_data.role_name}}">
+                                                <span class="validition_error">{{ form.errors.role_name }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-offset-3 col-md-9">
+                                                <button type="submit" class="btn btn-info btn_style "><i class="fa fa-check"></i> Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"> </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+     
+			
+{% endblock mainbody %}

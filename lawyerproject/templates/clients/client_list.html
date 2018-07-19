@@ -1,0 +1,49 @@
+
+{% extends 'admin/master.html' %}
+
+{% load static from staticfiles %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block mainbody %}
+
+
+    <div class="container">
+        <h1 style="text-align: center;padding: 10px">Client List</h1>
+        <a href="{% url 'client_info' %}"><button class="btn btn-primary">ADD CLIENT</button></a>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+          <th>Image</th>
+         <th>First Name</th>
+         <th>Last Name</th>
+          <th>Mobile Number</th>
+          <th>Email Address</th>
+          <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+     {% for client in client  %}
+      <tr class="{{ client.id }}">
+        <td>
+              {% if client.client_pic %}
+               <img src="{{ client.client_pic.url }}" width="50px" height="50px">
+              {% endif %}
+          </td>
+        <td> {{ client.first_name }}</td>
+         <td> {{ client.last_name }}</td>
+         <td>{{ client.mobile_number }}</td>
+          <td>{{ client.email_address }}</td>
+
+          <td>
+              <a href="{% url 'update_client' client.id %}"  class="btn btn-info btn-md btnColor"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+              <a href="{% url 'delete_client' client.id %}" data-id="{{ client.id }}"   class="delete btn btn-danger btn-md deleteBtn btnColor"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+          </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    </div>
+
+
+{% endblock mainbody %}

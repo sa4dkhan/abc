@@ -1,0 +1,683 @@
+{% extends 'base_layout.html' %}
+{% load static from staticfiles %}
+
+{% block customjs %}
+    <script>
+
+
+        $('#ajax').on('show.bs.modal', function (event) {
+            $(this).removeData('bs.modal');
+        });
+        $('#ajax').on('hidden.bs.modal',function(){
+            $(this).removeData('bs.modal');
+        });
+        $("body").on("show.bs.modal",'#ajax', function(e) {
+            var source = $(e.relatedTarget);
+            var link = source.attr('data-url');
+            $(this).find(".modal-content").load(link);
+        });
+
+
+    </script>
+
+{% endblock customjs %}
+
+
+
+{% block mainbody %}
+    <!-- Modal -->
+    <div class="modal fade change-slider-img-modal " id="ajax" role="basic" aria-hidden="true" style="padding: 35px 35px 35px 17px;">
+        <div class="modal-dialog">
+            <div class="modal-content square">
+
+            </div>
+        </div>
+    </div>
+
+    <section class="slider-section-wrapper">
+        <div class="homepage-slider">
+            <div class="homepage-slider-wrapper">
+                <div class="homepage-slider-item"><!-- slider item start-->
+                    <img src="{% static 'mystyle/images/slider-1.jpg' %}" alt="Logo">
+                        <div class="homepage-slider-caption">
+                            <p>our Legal Solution Starts Here !</p>
+                            <h1>Experienced lawyers<br> are ready to help.</h1>
+                            <div class="slider-readmore">
+                                <ul>
+                                    <li><a href="#">find a lawyer</a></li>
+                                    <li><a href="#">Get advice</a></li>
+                                </ul>
+                            </div>
+                            <div class="homepage-search-fields clearfix">
+                                <form action="" method="get" class="clearfix">
+                                    <div class="lawyer-select">
+                                        <button type="submit"  class="disease-submit">
+                                                <i class="fa fa-search"></i>
+                                        </button>
+                                        <input type="text"  placeholder="practice area, lawyer name or firm" name="address" class="city-select-input" autocomplete="off">
+                                    </div>
+                                    <div class="disease-input-box">
+                                        <div>
+                                            <button type="submit"  class="disease-submit">
+                                                <i class="fa fa-map-marker"></i>
+                                            </button>
+                                            <input type="text" placeholder="city or zip code" class="disease-input">
+                                        </div>
+                                    </div>
+                                    <div class="home-page-search-button">
+                                            <input type="submit" name="search" placeholder="Search">
+                                    </div>
+                                </form> <!----> <!---->
+                            </div>
+                        </div>
+                </div><!-- slider item end-->
+                <div class="homepage-slider-item"><!-- slider item start-->
+                    <img src="{% static 'mystyle/images/slider-1.jpg' %}" alt="Logo">
+                        <div class="homepage-slider-caption">
+                            <p>Your Legal Solution Starts Here !</p>
+                            <h1>Experienced lawyers<br> are ready to help.</h1>
+                            <div class="slider-readmore">
+                                <ul>
+                                    <li><a href="#">find a lawyer</a></li>
+                                    <li><a href="#">Get advice</a></li>
+                                </ul>
+                            </div>
+                            <div class="homepage-search-fields clearfix">
+                                <form action="" method="get" class="clearfix">
+                                    <div class="lawyer-select">
+                                        <button type="submit"  class="disease-submit">
+                                                <i class="fa fa-search"></i>
+                                        </button>
+                                        <input type="text" placeholder="practice area, lawyer name or firm" name="address" class="city-select-input" autocomplete="off">
+                                    </div>
+                                    <div class="disease-input-box">
+                                        <div>
+                                            <button type="submit"  class="disease-submit">
+                                                <i class="fa fa-map-marker"></i>
+                                            </button>
+                                            <input type="text" placeholder="city or zip code" class="disease-input">
+                                        </div>
+                                    </div>
+                                    <div class="home-page-search-button">
+                                            <input type="submit" name="search" placeholder="Search">
+                                    </div>
+                                </form> <!----> <!---->
+                            </div>
+                        </div>
+                </div><!-- slider item end-->
+                    <div class="homepage-slider-item"><!-- slider item start-->
+                    <img src="{% static 'mystyle/images/slider-1.jpg' %}" alt="Logo">
+                        <div class="homepage-slider-caption">
+                            <p>Your Legal Solution Starts Here !</p>
+                            <h1>Experienced lawyers<br> are ready to help.</h1>
+                            <div class="slider-readmore">
+                                <ul>
+                                    <li><a href="#">find a lawyer</a></li>
+                                    <li><a href="#">Get advice</a></li>
+                                </ul>
+                            </div>
+                            <div class="homepage-search-fields clearfix">
+                                <form action="" method="get" class="clearfix">
+                                    <div class="lawyer-select">
+                                        <button type="submit"  class="disease-submit">
+                                                <i class="fa fa-search"></i>
+                                        </button>
+                                        <input type="text" placeholder="practice area, lawyer name or firm" name="address" class="city-select-input" autocomplete="off">
+                                    </div>
+                                    <div class="disease-input-box">
+                                        <div>
+                                            <button type="submit"  class="disease-submit">
+                                                <i class="fa fa-map-marker"></i>
+                                            </button>
+                                            <input type="text" placeholder="city or zip code" class="disease-input">
+                                        </div>
+                                    </div>
+                                    <div class="home-page-search-button">
+                                            <input type="submit" name="search" placeholder="Search">
+                                    </div>
+                                </form> <!----> <!---->
+                            </div>
+                        </div>
+                </div><!-- slider item end-->
+            </div>
+            <div class="homepage-slider-controls"></div>
+        </div>
+    </section>
+
+    <section class="count-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="count-section-wrapper">
+                    <div class="col-md-3"><!--count-item start-->
+                    <div class="count-item clearfix">
+                        <div class="left-side float-left">
+                            <h3>1000<span>+</span></h3>
+                            <p>Qualified Lawyers</p>
+                        </div>
+                        <div class="right-side float-right">
+                            <img src="{% static 'mystyle/images/count-icon-1.png' %}" alt="Logo">
+                        </div>
+                    </div>
+                </div><!--count-item end-->
+                <div class="col-md-3"><!--count-item start-->
+                    <div class="count-item clearfix">
+                        <div class="left-side float-left">
+                            <h3>321549<span>+</span></h3>
+                            <p>Qualified Lawyers</p>
+                        </div>
+                        <div class="right-side float-right">
+                            <img src="{% static 'mystyle/images/count-icon-2.png' %}" alt="Logo">
+                        </div>
+                    </div>
+                </div><!--count-item end-->
+                <div class="col-md-3"><!--count-item start-->
+                    <div class="count-item clearfix">
+                        <div class="left-side float-left">
+                            <h3>84587<span>+</span></h3>
+                            <p>Qualified Lawyers</p>
+                        </div>
+                        <div class="right-side float-right">
+                            <img src="{% static 'mystyle/images/count-icon-3.png' %}" alt="Logo">
+                        </div>
+                    </div>
+                </div><!--count-item end-->
+                <div class="col-md-3"><!--count-item start-->
+                    <div class="count-item clearfix">
+                        <div class="left-side float-left">
+                            <h3>200<span>+</span></h3>
+                            <p>Qualified Lawyers</p>
+                        </div>
+                        <div class="right-side float-right">
+                            <img src="{% static 'mystyle/images/count-icon-4.png' %}" alt="Logo">
+                        </div>
+                    </div>
+                </div><!--count-item end-->
+                </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="welcome-match-lawyer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="welcome-wrapper">
+                        <span>Hello Dear</span>
+                        <h3>Welcome To match a lawyer</h3>
+                        <p>We serve perfectly so that you can find suited legal advisers and offices, lawyers, attorneys, counsels, advocates and other legal and law related services easily.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="story-values-mission-section">
+        <div class="container">
+            <div class="row story-values-mission-wrapper">
+                <div class="col-md-4"><!--story-values-mission item start-->
+                    <div class="story-values-mission-item">
+                        <div class="top-div-mission clearfix">
+                            <div class="left-side-div float-left">
+                                <h3>Story<br>& History</h3>
+
+                            </div>
+                            <div class="right-site-div float-right">
+                                <h3>01.</h3>
+                            </div>
+                        </div>
+                        <p>
+                            We started as a sole practitioner providing services to the area community. Our System has now grown to 1000+ lawyers and provides expert legal representation.
+                        </p>
+                            <a href="#">More</a>
+                    </div>
+                </div><!--story-values-mission item end-->
+                <div class="col-md-4"><!--story-values-mission item start-->
+                    <div class="story-values-mission-item">
+                        <div class="top-div-mission clearfix">
+                            <div class="left-side-div float-left">
+                                <h3>Values <br> & Philosophy</h3>
+                            </div>
+                            <div class="right-site-div float-right">
+                                <h3>02.</h3>
+                            </div>
+                        </div>
+                        <p>
+                            Our Law Platform founded on the principles of truth, justice, accountability, and equal access to all. Our success has been the result of each attorney and staff members.
+                        </p>
+                            <a href="#">More</a>
+                    </div>
+                </div><!--story-values-mission item end-->
+
+                <div class="col-md-4"><!--story-values-mission item start-->
+                    <div class="story-values-mission-item">
+                        <div class="top-div-mission clearfix">
+                            <div class="left-side-div float-left">
+                                <h3>Mission <br> & Services</h3>
+                            </div>
+                            <div class="right-site-div float-right">
+                                <h3>03.</h3>
+                            </div>
+                        </div>
+                        <p>
+                            We founded the system with a desire to tackle the most challenging legal issues in the country and to advocate entirely on behalf of plaintiffs to all users.
+                        </p>
+                            <a href="#">More</a>
+                    </div>
+                </div><!--story-values-mission item end-->
+                <div class="col-md-12">
+                    <div class="find-out-wrapper">
+                        <a href="about-match-lawyer.php">Find Out More About US</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="provide-legal-section">
+        <div class="provide-legal-bg-img">
+            <div class="background-img-provide">
+                <img src="{% static 'mystyle/images/provide.jpg' %}" alt="Logo">
+            </div>
+            <div class="logo-icon-img">
+                <img src="{% static 'mystyle/images/provide-in.png' %}" alt="Logo">
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="offset-md-6 col-md-6 ">
+                    <div class="provide-legal-right-wrapper">
+                        <div class="provide-legal-right-site">
+                            <h2>WE ARE HERE <br> TO PROVIDE LEGAL HELP</h2>
+                            <p>We are aiming to help you with high quality legal consultancy, support and results for your legal issues.</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6"><!--item start-->
+                                <div class="get-your-item">
+                                    <div class="media">
+                                        <img class="mr-3" src="{% static 'mystyle/images/provide-1.png' %}" >
+                                        <div class="media-body">
+                                            <h5 class="mt-0">Get Your <br> Legal Advice</h5>
+                                            <p>Post your question and get free legal advice directly from our experienced lawyers, We are here to help you.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--item start-->
+                            <div class="col-md-6"><!--item start-->
+                                <div class="get-your-item">
+                                    <div class="media">
+                                        <img class="mr-3" src="{% static 'mystyle/images/provide-2.png' %}" >
+                                        <div class="media-body">
+                                            <h5 class="mt-0">Work With <br> Expert Lawyers</h5>
+                                            <p>You will get the chance to get help from experts in all law fields, They will obtain the best results they could achieve.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--item start-->
+                            <div class="col-md-6"><!--item start-->
+                                <div class="get-your-item">
+                                    <div class="media">
+                                        <img class="mr-3" src="{% static 'mystyle/images/provide-3.png' %}" >
+                                        <div class="media-body">
+                                            <h5 class="mt-0">Have Great<br> Discounted Rates</h5>
+                                            <p>If lawyers accept your case, we'll never require you to pay huge fees or expenses as we work with alow cost.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--item start-->
+                            <div class="col-md-6"><!--item start-->
+                                <div class="get-your-item">
+                                    <div class="media">
+                                        <img class="mr-3" src="{% static 'mystyle/images/provide-3.png' %}" >
+                                        <div class="media-body">
+                                            <h5 class="mt-0">Review Your <br> Case Documents</h5>
+                                            <p>Get a thorough review of your legal documents by an expert attorney for as little as $15 per document.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!--item start-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="practice-areas">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="practice-areas-item-left">
+                        <span>Want Help</span>
+                        <h3>Practice Areas</h3>
+                        <p>We have got a wide range of legal services. We help attain civil law for businesses, individuals, and local governments too. </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="practice-areas-item-right">
+                        <a href="#">View All Practice Areas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="low-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3"><!--Low item start-->
+                    <a href="#">
+                        <div class="low-item align-middle">
+                            <div class="low-item-icon">
+                                <img src="{% static 'mystyle/images/family-law.png' %}" >
+                                <h3>Family Law</h3>
+                            </div>
+                            <div class="low-content">
+                                <p>Family law is an area of the law that deals with family matters & domestic relations, including adoption and surrogacy.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div><!--Low item start-->
+
+                <div class="col-md-3"><!--Low item start-->
+                    <a href="#">
+                        <div class="low-item">
+                            <div class="low-item-icon">
+                                <img src="{% static 'mystyle/images/fire-accident.png' %}" >
+                                <h3>Fire Accident</h3>
+                            </div>
+                            <div class="low-content">
+                                <p>Family law is an area of the law that deals with family matters & domestic relations, including adoption and surrogacy.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div><!--Low item start-->
+
+                <div class="col-md-3"><!--Low item start-->
+                    <a href="#">
+                        <div class="low-item">
+                            <div class="low-item-icon">
+                                <img src="{% static 'mystyle/images/shoplifting.png' %}" >
+                                <h3>Shoplifting</h3>
+                            </div>
+                            <div class="low-content">
+                                <p>Family law is an area of the law that deals with family matters & domestic relations, including adoption and surrogacy.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div><!--Low item start-->
+
+                <div class="col-md-3"><!--Low item start-->
+                    <a href="#">
+                        <div class="low-item">
+                            <div class="low-item-icon">
+                                <img src="{% static 'mystyle/images/sexual-offences.png' %}" >
+                                <h3>Sexual Offences</h3>
+                            </div>
+                            <div class="low-content">
+                                <p>Family law is an area of the law that deals with family matters & domestic relations, including adoption and surrogacy.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div><!--Low item start-->
+
+                <div class="col-md-3"><!--Low item start-->
+                    <a href="#">
+                        <div class="low-item">
+                            <div class="low-item-icon">
+                                <img src="{% static 'mystyle/images/drug-offences.png' %}" >
+                                <h3>Drug Offences</h3>
+                            </div>
+                            <div class="low-content">
+                                <p>Family law is an area of the law that deals with family matters & domestic relations, including adoption and surrogacy.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div><!--Low item start-->
+
+                <div class="col-md-3"><!--Low item start-->
+                    <a href="#">
+                        <div class="low-item">
+                            <div class="low-item-icon">
+                                <img src="{% static 'mystyle/images/financial-law.png' %}" >
+                                <h3>Financial Law</h3>
+                            </div>
+                            <div class="low-content">
+                                <p>Family law is an area of the law that deals with family matters & domestic relations, including adoption and surrogacy.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div><!--Low item start-->
+
+                <div class="col-md-3"><!--Low item start-->
+                    <a href="#">
+                        <div class="low-item">
+                            <div class="low-item-icon">
+                                <img src="{% static 'mystyle/images/insurance.png' %}" >
+                                <h3>Insurance</h3>
+                            </div>
+                            <div class="low-content">
+                                <p>Family law is an area of the law that deals with family matters & domestic relations, including adoption and surrogacy.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div><!--Low item start-->
+
+                <div class="col-md-3"><!--Low item start-->
+                    <a href="#">
+                        <div class="low-item">
+                            <div class="low-item-icon">
+                                <img src="{% static 'mystyle/images/civil-litigation.png' %}" >
+                                <h3>Civil Litigation</h3>
+                            </div>
+                            <div class="low-content">
+                                <p>Family law is an area of the law that deals with family matters & domestic relations, including adoption and surrogacy.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div><!--Low item start-->
+
+            </div>
+        </div>
+    </section>
+
+    <section class="our-legal-team-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="our-legal-team-left-site">
+                        <span>Our Legal Team</span>
+                        <h3>Meet Our Attorneys</h3>
+                        <p>Each lawyer at Trust law firm focuses exclusively on civil matters, we have choosed our lawyers taking into account their experience and ability to handle all cases.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="browse-top-rated-lawyers">
+                        <a href="#">browse Top-rated lawyers</a>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="row our-team-wrapper">
+                        <div class="col-md-3"><!--our team item start-->
+                            <div class="our-team-item">
+                                <div class="our-team-img">
+                                    <img src="{% static 'mystyle/images/team-1.jpg' %}" >
+                                </div>
+                                <div class="our-team-overly">
+                                    <p>Using his expertise and experience, Mahmoud documents and builds his customers' cases to obtain the best results they could achieve in their particular situation.</p>
+                                    <ul class="social">
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                    <p class="reviews">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </p>
+                                    <p><a href="#">42 Reviews</a></p>
+                                </div>
+                                <div class="our-team-title">
+                                    <a href="#">
+                                        <h4>Mahmud Adel Baghagho</h4>
+                                    </a>
+                                    <p>Senior Attorney</p>
+                                </div>
+                            </div>
+                        </div><!--our team item end-->
+                        <div class="col-md-3"><!--our team item start-->
+                            <div class="our-team-item">
+                                <div class="our-team-img">
+                                    <img src="{% static 'mystyle/images/team-2.jpg' %}" >
+                                </div>
+                                <div class="our-team-overly">
+                                    <p>Using his expertise and experience, Mahmoud documents and builds his customers' cases to obtain the best results they could achieve in their particular situation.</p>
+                                    <ul class="social">
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                    <p class="reviews">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </p>
+                                    <p><a href="#">42 Reviews</a></p>
+                                </div>
+                                <div class="our-team-title">
+                                    <a href="#">
+                                        <h4>Ahmed Hassan</h4>
+                                    </a>
+                                    <p>Civil Lawyer</p>
+                                </div>
+                            </div>
+                        </div><!--our team item end-->
+                        <div class="col-md-3"><!--our team item start-->
+                            <div class="our-team-item">
+                                <div class="our-team-img">
+                                    <img src="{% static 'mystyle/images/team-3.jpg' %}" >
+                                </div>
+                                <div class="our-team-overly">
+                                    <p>Using his expertise and experience, Mahmoud documents and builds his customers' cases to obtain the best results they could achieve in their particular situation.</p>
+                                    <ul class="social">
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                    <p class="reviews">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </p>
+                                    <p><a href="#">42 Reviews</a></p>
+                                </div>
+                                <div class="our-team-title">
+                                    <a href="#">
+                                        <h4>Mohamed Habaza</h4>
+                                    </a>
+                                    <p>Business Lawyer</p>
+                                </div>
+                            </div>
+                        </div><!--our team item end-->
+                        <div class="col-md-3"><!--our team item start-->
+
+                            <div class="our-team-item">
+                                <div class="our-team-img">
+                                    <img src="{% static 'mystyle/images/team-4.jpg' %}" >
+                                </div>
+                                <div class="our-team-overly">
+                                    <p>Using his expertise and experience, Mahmoud documents and builds his customers' cases to obtain the best results they could achieve in their particular situation.</p>
+                                    <ul class="social">
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                    </ul>
+                                    <p class="reviews">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star-half-o"></i>
+                                        <i class="fa fa-star-o"></i>
+                                    </p>
+                                    <p><a href="#">42 Reviews</a></p>
+                                </div>
+                                <div class="our-team-title">
+                                    <a href="#">
+                                        <h4>Ahmed Abd Alhaleem</h4>
+                                    </a>
+                                    <p>Criminal Defence</p>
+                                </div>
+                            </div>
+
+                        </div><!--our team item end-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="consultation-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="consultation-content">
+                        <span>Don’t Hesitate To Ask</span>
+                        <h3>fill up for Consultation</h3>
+                        <p>Feel free to get in touch with any enquiries and one of our friendly members of staff will get back to you as soon as possible, we are here to help !</p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-content-wrapper">
+                        <form>
+                            <div class="form-row">
+                                <div class="col">
+                                 <input type="text" class="form-control"  placeholder="Yuor name">
+                                </div>
+                                <div class="col">
+                                 <input type="email" class="form-control" placeholder="Your Email">
+                                </div>
+                                <div class="col">
+                                    <select class="form-control" id="serviceArea">
+                                        <option>service area 1</option>
+                                        <option>service area 2</option>
+                                        <option>service area 3</option>
+                                        <option>service area 4</option>
+                                        <option>service area 5</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <textarea class="form-control" placeholder="Case Details"  id="exampleFormControlTextarea1" rows="5"></textarea>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="left-button">
+                                        <button type="submit" class="btn btn-primary">Send Your Request</button>
+                                                    </div>
+                                    <div class="home-form-right-conten">
+                                        <p>ill out the form below to recieve a free and confidential intial consultation. Don’t worry, we never share your information or use it to spam you.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+{% endblock mainbody %}
+
+
+
+
