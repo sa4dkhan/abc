@@ -73,6 +73,24 @@ def update_form_action(request,id):
     return render(request, 'clients/update-client.html', {'form': form, 'client': client})
 
 
+def update_profile(request, id):
+    client = Client.objects.get(id=id)
+    form = ClientForm(request.POST or None, instance=client)
+    if request.method == "POST":
+        client.client_pic = request.FILES['client_pic']
+        client.first_name = request.POST['first_name']
+        client.last_name = request.POST['last_name']
+        client.mobile_number = request.POST['mobile_number']
+        client.email_address = request.POST['email_number']
+        client.save()
+        return redirect('dashboard_index')
+    return render(request, 'clients/update_profile_info.html')
+
+
+def view_profile(request, id):
+    client = Client.objects.get(id=id)
+    return render(request, 'clients/view_profile.html', {'client': client})
+
 # def delete_client(request, id):
 #     client = Client.objects.get(id=id)
 #

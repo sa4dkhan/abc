@@ -170,10 +170,17 @@
                             <li><a href="{% url 'role_index' %}"><i class="fa-fw">R</i><span class="hide-menu">Add Role</span></a></li>
                         </ul>
                     </li>
-                    <li> <a href="tables.html" class="waves-effect "><i class="mdi mdi-table fa-user"></i> <span class="hide-menu">Clients<span class="fa arrow"></span></span></a>
+                    <li> <a href="#" class="waves-effect "><i class="mdi mdi-table fa-user"></i> <span class="hide-menu">Clients<span class="fa arrow"></span></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="{% url 'client_info' %}"><i class="mdi mdi-clipboard-text fa-fw"></i><span class="hide-menu">Add Clients</span></a></li>
                             <li><a href="{% url 'client_list' %}"><i class="mdi mdi-clipboard-text fa-fw"></i><span class="hide-menu">Client List</span></a></li>
+
+                        </ul>
+                    </li>
+                    <li> <a href="#" class="waves-effect "><i class="mdi mdi-table fa-user-tie"></i> <span class="hide-menu">Lawyers<span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="{% url 'create_lawyer' %}"><i class="mdi mdi-clipboard-text fa-fw"></i><span class="hide-menu">Add Lawyer</span></a></li>
+                            <li><a href="{% url 'lawyer_list' %}"><i class="mdi mdi-clipboard-text fa-fw"></i><span class="hide-menu">Lawyer List</span></a></li>
 
                         </ul>
                     </li>

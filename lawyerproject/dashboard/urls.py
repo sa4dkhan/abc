@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import client_info, client_list, update_client, client_dashboard, store_client, update_form_action, delete_client
+from .views import client_info, client_list, update_client, client_dashboard, store_client, update_form_action, delete_client, view_profile, update_profile
 
 urlpatterns = [
     path('', views.index, name='dashboard_index'),
@@ -12,7 +12,6 @@ urlpatterns = [
     path('update_form_action/<int:id>', update_form_action, name='update_form_action'),
 
     path('delete/<int:id>', delete_client, name='delete_client'),
-
-
-
+    path('view_profile/<int:id>', view_profile, name='view_profile'),
+    path('update_profile/<int:id>', update_profile, name='update_profile')
 ]
