@@ -7,61 +7,53 @@
 
 {% block mainbody %}
 
-
-{#    <div class="container">#}
-{#      <form method="POST" class="form-control">#}
+{#<div style="text-align: center;">#}
+{#<form method="POST" class="form-control" style="padding: 50px;">#}
 {#    {% csrf_token %}#}
-{#    {{ form }}#}
+{#    {{ form.as_p }}#}
 {#    <button type="submit">save</button>#}
-{#      </form>#}
+{#</form>#}
 {##}
-{#    </div>#}
-
-<div class="row bg-title">
+{#</div>#}
+    <div class="row bg-title">
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <ol class="breadcrumb">
-                <li class="active breadcrumbColor"><a href="#"><i class="fa fa-home"></i> Update Client Information</a></li>
-                <li>Update Client Information</li>
+                <li class="active breadcrumbColor"><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
+                <li>Add Client</li>
 
             </ol>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-            <a href=""  class="btn btn-info pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"><i class="fa fa-list-ul" aria-hidden="true"></i>  View Client </a>
+            <a href="{% url 'client_list' %}"  class="btn btn-info pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"><i class="fa fa-list-ul" aria-hidden="true"></i>  View Client </a>
         </div>
     </div>
-    <input type="hidden" name="id" value="{{ client.id }}">
+
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-info">
-                <div class="panel-heading"><i class="mdi mdi-clipboard-text fa-fw"></i> Update Client Info</div>
+                <div class="panel-heading"><i class="mdi mdi-clipboard-text fa-fw"></i> Add Client</div>
                 <div class="panel-wrapper collapse in" aria-expanded="true">
                     <div class="panel-body">
-                        <form action="{% url 'update_form_action_lawyer' client.id %}" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                        <form action="{% url 'store_lawyer' %}" class="form-horizontal" method="POST" enctype="multipart/form-data">
                              {% csrf_token %}
-
                             <div class="form-body">
                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Image</label>
                                             <div class="col-md-9">
-                                                <input type="file" class="form-control" name="client_pic" value="{{ client.client_pic }}">
-                                                {% if client.client_pic %}
-                                                <img src="{{ client.client_pic.url }}" width="150px" height="150px">
-                                                {% endif %}
-                                            </div>
+                                                <input type="file" class="form-control" name="lawyer_pic" placeholder=""> </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-body">
                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="control-label col-md-3">First Name</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="first_name" value="{{ client.first_name }}"> </div>
+                                                <input type="text" class="form-control" name="first_name" placeholder="Enter First Name"> </div>
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +64,18 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Last Name</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="last_name" placeholder="Enter Last Name" value="{{ client.last_name }}"> </div>
+                                                <input type="text" class="form-control" name="last_name" placeholder="Enter Last Name"> </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-body">
+                               <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Speciality</label>
+                                            <div class="col-md-9">
+                                                <textarea type="text" class="form-control" name="speciality" placeholder="Enter Your Speciality"> </textarea></div>
                                         </div>
                                     </div>
                                 </div>
@@ -83,7 +86,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Mobile Number</label>
                                             <div class="col-md-9">
-                                                <input type="number" class="form-control" name="mobile_number" value="{{ client.mobile_number }}" placeholder="Enter Mobile Number"> </div>
+                                                <input type="number" class="form-control" name="mobile_number" placeholder="Enter Mobile Number"> </div>
                                         </div>
                                     </div>
                                 </div>
@@ -93,7 +96,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Email Address</label>
                                             <div class="col-md-9">
-                                                <input type="text" class="form-control" name="email_address" value="{{ client.email_address }}" placeholder="Enter Email Address"> </div>
+                                                <input type="text" class="form-control" name="email_address" placeholder="Enter Email Address"> </div>
                                         </div>
                                     </div>
                                 </div>
@@ -110,13 +113,11 @@
                                     <div class="col-md-6"> </div>
                                 </div>
                             </div>
-
                         </form>
                     </div>
                 </div>
                 </div>
             </div>
         </div>
-
 
 {% endblock mainbody %}

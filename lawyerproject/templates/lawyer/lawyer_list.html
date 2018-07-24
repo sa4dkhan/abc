@@ -1,0 +1,52 @@
+
+{% extends 'lawyer/master.html' %}
+
+{% load static from staticfiles %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block mainbody %}
+
+
+    <div class="container">
+        <h1 style="text-align: center;padding: 10px">Lawyer List</h1>
+        <a href="{% url 'create_lawyer' %}"><button class="btn btn-primary">ADD LAWYER</button></a>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+          <th>Image</th>
+         <th>First Name</th>
+         <th>Last Name</th>
+          <th>Speciality</th>
+          <th>Mobile Number</th>
+          <th>Email Address</th>
+          <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+     {% for lawyer in lawyer  %}
+      <tr class="{{ lawyer.id }}">
+        <td>
+
+              {% if lawyer.lawyer_pic %}
+               <img src="{{ lawyer.lawyer_pic.url }}" width="50px" height="50px">
+              {% endif %}
+          </td>
+        <td> {{ lawyer.first_name }}</td>
+         <td> {{ lawyer.last_name }}</td>
+          <td> {{ lawyer.speciality }}</td>
+         <td>{{ lawyer.mobile_number }}</td>
+          <td>{{ lawyer.email_address }}</td>
+
+          <td>
+              <a href="{% url 'view_lawyer_update' lawyer.id %}"  class="btn btn-info btn-md btnColor"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+              <a href="{% url 'delete_lawyer' lawyer.id %}"   class="delete btn btn-danger btn-md deleteBtn btnColor"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+          </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+    </div>
+
+
+{% endblock mainbody %}
