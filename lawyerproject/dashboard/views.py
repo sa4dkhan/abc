@@ -84,7 +84,7 @@ def update_profile(request, id):
         client.email_address = request.POST['email_number']
         client.save()
         return redirect('dashboard_index')
-    return render(request, 'clients/update_profile_info.html')
+    return render(request, 'clients/update_profile_info.html', {'client': client})
 
 
 def view_profile(request, id):
