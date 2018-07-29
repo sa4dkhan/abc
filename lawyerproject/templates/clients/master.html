@@ -12,6 +12,7 @@
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'admin/plugins/images/favicon.png' %}">
     <title>{% block title %}{% endblock %}</title>
+
     <!-- Bootstrap Core CSS -->
     <link href="{% static 'admin/bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet">
     <!-- Menu CSS -->
@@ -170,10 +171,10 @@
                     <li> <a href="{% url 'dashboard_index' %}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw active" data-icon="v"></i> <span class="hide-menu"> Dashboard  </span></a>
                     </li>
 
-                    <li> <a href="forms.html" class="waves-effect"><i class="mdi mdi-clipboard-text fa-fw"></i> <span class="hide-menu">Forms<span class="fa arrow"></span></span></a>
+                    <li> <a href="forms.html" class="waves-effect"><i class="mdi mdi-clipboard-text fa-fw"></i> <span class="hide-menu">Profile<span class="fa arrow"></span></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="form-basic.html"><i class="fa-fw">B</i><span class="hide-menu">Basic Forms</span></a></li>
-                            <li><a href="form-layout.html"><i class="fa-fw">L</i><span class="hide-menu">Form Layout</span></a></li>
+                            <li><a href="{% url 'view_profile' client.id %}"><span class="hide-menu">View Profile</span></a></li>
+                            <li><a href="#"><span class="hide-menu">Edit Profile</span></a></li>
                         </ul>
                     </li>
                     <li> <a href="tables.html" class="waves-effect "><i class="mdi mdi-table fa-fw"></i> <span class="hide-menu">Tables<span class="fa arrow"></span></span></a>
