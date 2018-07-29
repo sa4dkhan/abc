@@ -135,7 +135,11 @@
                             <li role="separator" class="divider"></li>
                             <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                            {% if user.is_authenticated %}
+                                <li><a href="{% url 'account:logout' %}"><i class="fa fa-power-off"></i> Logout</a></li>
+                            {% else %}
+                                <li><a href="{% url 'account:login' %}"><i class="fa fa-power-off"></i> Login</a></li>
+                            {% endif %}
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>

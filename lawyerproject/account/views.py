@@ -1,38 +1,65 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth import login, logout
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+from .forms import UserForm, UserProfileInfoForm
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect, HttpResponse
 
 
 def signup_view(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
+        user_form = UserForm(data=request.POST)
+        profile_form = UserProfileInfoForm(data=request.POST)
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save()
+            profile = profile_form.save(commit=False)
+            profile.user = user #relation of profile with user
+
+            if 'profile_pics' in request.FILES:
+                profile.profile_pics = request.FILES['profile_pics']
+
+            profile.save()
             login(request, user)
             return redirect('dashboard_index')
+
+        else:
+            print(user_form.errors, profile_form.errors)
+
     else:
-        form = UserCreationForm()
-    data = {'form': form}
-    return render(request, 'account/signup.html', data)
+        user_form = UserForm()
+        profile_form = UserProfileInfoForm()
+    return render(request, 'account/signup.html',
+                  {'user_form': user_form,
+                   'profile_form': profile_form})
 
 
 def login_view(request):
     if request.method == 'POST':
-        form = AuthenticationForm(data=request.POST)
-        if form.is_valid():
-            user = form.get_user()
-            login(request, user)
-            if 'next' in request.POST:
-                return redirect(request.POST.get('next'))
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(username=username, password=password)
+
+        if user:
+            if user.is_active:
+                login(request, user)
+                return HttpResponseRedirect(reverse('dashboard_index'))
+
             else:
-                return redirect('dashboard_index')
+                return HttpResponse("Account not active")
+
+        else:
+            print("Someone tried to login and failed!")
+            print("Username: {} and password {}".format(username, password))
+            return HttpResponse("invalid login details supplied")
+
     else:
-        form = AuthenticationForm()
-    data = {'form': form}
-    return render(request, 'account/login.html', data)
+        return render(request, 'account/login.html', {})
 
 
+@login_required
 def logout_view(request):
     logout(request)
     try:
@@ -40,5 +67,5 @@ def logout_view(request):
         return redirect('accounts:login')
     except Exception as e:
         messages.warning(request, 'Your are not logged out due to an error: {}'.format(e))
-    return redirect('posts:post_list')
+    return redirect('dashboard_index')
 

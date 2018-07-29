@@ -40,10 +40,15 @@
 						<small>Enter your details below</small>
 						<form class="form-horizontal new-lg-form" id="loginform" method="POST">
                             {% csrf_token %}
-							{% include 'includes/bs4_form.html' with form=form %}
+							{{ user_form.as_p }}
+                            {{ profile_form.as_p }}
 							  <div class="col-xs-12">
 								<button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Sign Up</button>
 							  </div>
+                            <br>
+                            <div class="col-xs-12">
+                                <a href="{% url 'role_create' %}">Create role</a>
+                            </div>
 						</form>
 
 						<form class="form-horizontal" id="recoverform" action="index.html">
