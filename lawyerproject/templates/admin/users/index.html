@@ -1,12 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Django CRUD Application</title>
-</head>
-<body>
-       <h1>{{ title }}</h1>
-</body>
-</html>
+
+{% extends 'admin/master.html' %}
+{% load static from staticfiles %}
+
+{% block title %} User List {% endblock %}
+
+{% block mainbody %}
+    <div class="row bg-title">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+           <ol class="breadcrumb">
+                <li class="active breadcrumbColor"><a href="{% url 'dashboard_index' %}"><i class="fa fa-home"></i> Dashboard</a></li>
+                <li>User List</li>
+
+            </ol>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+            <a href="{% url 'user_create' %}"  class="btn btn-info pull-right m-l-20 hidden-xs hidden-sm waves-effect waves-light"> <i class="fa fa-plus-circle" aria-hidden="true"></i> Add New User</a>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12">
+             <div class="panel panel-info">
+                    <div class="panel-heading"><i class="mdi mdi-table fa-fw"></i> User List</div>
+                    <div class="panel-wrapper collapse in" aria-expanded="true">
+                        <div class="panel-body">
+                          <div class="table-responsive">
+                            <table id="myTable" class="table table-bordered">
+                                <thead class="">
+                                    <tr class="tr_header">
+                                        <th style="width: 10%">S/L</th>
+                                        <th>Role</th>
+                                        <th>Full Name</th>
+                                        <th>Email</th>
+                                        <th>Status</th>
+                                        <th style="width: 10%">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for value in users %}
+                                        <tr class="{{ value.id }}">
+                                            <td>{{ forloop.counter }}</td>
+                                            <td>{{ value.role.role_name }}</td>
+                                            <td>{{ value.full_name }}</td>
+                                            <td>{{ value.email }}</td>
+                                            <td>
+                                                 {% if value.status == 1 %}
+                                                    {{ "Active" }}
+                                                 {% else %}
+                                                     {{ "Inactive" }}
+                                                 {% endif %}
+                                            </td>
+
+                                            <td>
+                                                <a href="{% url 'user_edit' value.id %}"  class="btn btn-info btn-md btnColor">
+                                                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                        </a>
+
+                                                <a href="{% url 'user_delete' value.id %}" data-id="{{ value.id }}"   class="delete btn btn-danger btn-md deleteBtn btnColor"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                    </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock mainbody %}
