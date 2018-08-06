@@ -1,8 +1,28 @@
 from django.shortcuts import render, redirect
 from .models import Lawyer
+from dashboard.models import Client
+from django.shortcuts import render
+from .forms import SearchForm
+# import operator
+# from django.db.models import Q
 from .forms import LawyerForm
+# from django.http import HttpResponseRedirect
 
 # Create your views here.
+
+
+# @render('search.html')
+def search(request):
+    form = SearchForm(request.GET or {})
+    if form.is_valid():
+        results = form.get_queryset()
+    else:
+        results = Lawyer.objects.none(), Client.objects.none()
+    return render(request, 'search.html', {'form': form, 'results': results})
+    # return {
+    #     'form': form,
+    #     'results': results,
+    # }
 
 
 def index(request):
@@ -65,3 +85,26 @@ def update_form_action_lawyer(request,id):
         return redirect('lawyer_list')
 
     return render(request, 'lawyer/update-lawyer.html', {'form': form, 'lawyer': lawyer})
+
+
+
+# class BlogSearchListView(BlogListView):
+#     """
+#     Display a Blog List page filtered by the search query.
+#     """
+#     paginate_by = 10
+#
+#     def get_queryset(self):
+#         result = super(BlogSearchListView, self).get_queryset()
+#
+#         query = self.request.GET.get('q')
+#         if query:
+#             query_list = query.split()
+#             result = result.filter(
+#                 reduce(operator.and_,
+#                        (Q(title__icontains=q) for q in query_list)) |
+#                 reduce(operator.and_,
+#                        (Q(content__icontains=q) for q in query_list))
+#             )
+#
+#         return result

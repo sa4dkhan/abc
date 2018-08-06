@@ -36,7 +36,7 @@
                 <div class="panel-heading"><i class="mdi mdi-clipboard-text fa-fw"></i> Update Client Info</div>
                 <div class="panel-wrapper collapse in" aria-expanded="true">
                     <div class="panel-body">
-                        <form action="{% url 'update_form_action_lawyer' client.id %}" class="form-horizontal" method="POST" enctype="multipart/form-data">
+                        <form action="{% url 'update_profile' client.id %}" class="form-horizontal" method="POST" enctype="multipart/form-data">
                              {% csrf_token %}
 
                             <div class="form-body">

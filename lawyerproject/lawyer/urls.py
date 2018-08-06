@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import create_lawyer, store_lawyer, lawyer_list, view_lawyer_update, delete_lawyer, update_form_action_lawyer
+from .views import create_lawyer, store_lawyer, lawyer_list, view_lawyer_update, delete_lawyer, update_form_action_lawyer, search
 
 urlpatterns = [
     path('', views.index, name='dashboard_index'),
@@ -9,5 +9,6 @@ urlpatterns = [
     path('/lawyer_list', lawyer_list, name='lawyer_list'),
     path('/view_lawyer_update/<int:id>', view_lawyer_update, name='view_lawyer_update'),
     path('/delete/<int:id>', delete_lawyer, name='delete_lawyer'),
-    path('/update_form_action_lawyer/<int:id>', update_form_action_lawyer, name='update_form_action_lawyer')
+    path('/update_form_action_lawyer/<int:id>', update_form_action_lawyer, name='update_form_action_lawyer'),
+    path('/search', search, name='search'),
 ]
