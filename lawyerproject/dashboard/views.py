@@ -30,9 +30,15 @@ def client_info(request):
 
 
 def store_client(request):
+    try:
+        filepath = request.FILES['client_pic']
+    except MultiValueDictKeyError:
+        filepath = False
     if request.method == "POST":
         data = Client.objects.create()
-        data.client_pic = request.FILES['client_pic']
+        #data.client_pic = request.FILES['client_pic']
+        if filepath != False :
+            data.client_pic = request.FILES['client_pic']
         data.first_name = request.POST['first_name']
         data.last_name = request.POST['last_name']
         data.mobile_number = request.POST['mobile_number']
