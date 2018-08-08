@@ -169,12 +169,19 @@
                     <li> <a href="{% url 'dashboard_index' %}" class="waves-effect"><i class="mdi mdi-av-timer fa-fw active" data-icon="v"></i> <span class="hide-menu"> Dashboard  </span></a>
                     </li>
                   
-                    <li> <a href="{% url 'role_index' %}" class="waves-effect"><i class="mdi mdi-clipboard-text fa-fw"></i> <span class="hide-menu">Manage Role</span></a>
+                    <li>
+                        <a href="{% url 'role_index' %}" class="waves-effect"><i class="mdi mdi-clipboard-text fa-fw"></i> <span class="hide-menu">Manage Role</span></a>
 
                     </li>
 
-                    <li> <a href="{% url 'user_index' %}" class="waves-effect"><i class="mdi mdi-clipboard-text fa-fw"></i> <span class="hide-menu">Manage User</span></a>
+                    <li> <a href="#" class="waves-effect "><i class="mdi mdi-table fa-user"></i> <span class="hide-menu">User<span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="{% url 'user_index' %}"><i class="mdi mdi-clipboard-text fa-fw"></i><span class="hide-menu">Add User</span></a></li>
+                            <li><a href="{% url 'change_password' %}"><i class="mdi mdi-clipboard-text fa-fw"></i><span class="hide-menu">Change Password</span></a></li>
+
+                        </ul>
                     </li>
+
 
                     <li> <a href="#" class="waves-effect "><i class="mdi mdi-table fa-user"></i> <span class="hide-menu">Clients<span class="fa arrow"></span></span></a>
                         <ul class="nav nav-second-level">

@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'role',
     'lawyer',
     'users',
+    'change_password',
 
 ]
 
