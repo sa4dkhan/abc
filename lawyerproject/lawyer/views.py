@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import Lawyer
 from dashboard.models import Client
+from itertools import chain
 from django.shortcuts import render
 from .forms import SearchForm
+# from .forms import SearchForm1
 # import operator
 # from django.db.models import Q
 from .forms import LawyerForm
@@ -14,10 +16,13 @@ from .forms import LawyerForm
 # @render('search.html')
 def search(request):
     form = SearchForm(request.GET or {})
+    # form1 = SearchForm1(request.GET or {})
     if form.is_valid():
         results = form.get_queryset()
+                  # and form1.get_queryset()
     else:
-        results = Lawyer.objects.none(), Client.objects.none()
+        results = Lawyer.objects.none()
+        # results = (list(chain(Lawyer.objects.all(), Client.objects.all())))
     return render(request, 'search.html', {'form': form, 'results': results})
     # return {
     #     'form': form,
