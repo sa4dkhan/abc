@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import Client
 from .forms import ClientForm
 from django.http import HttpResponse
+from django.utils.datastructures import MultiValueDictKeyError
 # from pprint import pprint
 # from django.http import JsonResponse
 # from django.template.loader import render_to_string
@@ -60,11 +61,15 @@ def update_client(request, id):
 
 
 def update_form_action(request,id):
-
+    try:
+        filepath = request.FILES['client_pic']
+    except MultiValueDictKeyError:
+        filepath = False
     client = Client.objects.get(id=id)
     form = ClientForm(request.POST or None, instance=client)
     if request.method == "POST":
-        client.client_pic = request.FILES['client_pic']
+        if filepath != False :
+            client.client_pic = request.FILES['client_pic']
         client.first_name = request.POST['first_name']
         client.last_name = request.POST['last_name']
         client.mobile_number = request.POST['mobile_number']
@@ -76,16 +81,17 @@ def update_form_action(request,id):
 
 
 def update_profile(request, id):
+    try:
+        filepath = request.FILES['client_pic']
+    except MultiValueDictKeyError:
+        filepath = False
     client = Client.objects.get(id=id)
     form = ClientForm(request.POST or None, instance=client)
     client_id = client.id
-    # picture = client.client_pic
+    #picture = client.client_pic
     if request.method == "POST":
-        client.client_pic = request.FILES['client_pic']
-        # if client.client_pic == 'None':
-        #     client.client_pic == picture
-        # else:
-        #     client.client_pic = request.FILES['client_pic']
+        if filepath != False :
+            client.client_pic = request.FILES['client_pic']
         client.first_name = request.POST['first_name']
         client.last_name = request.POST['last_name']
         client.mobile_number = request.POST['mobile_number']
