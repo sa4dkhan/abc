@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from users.models import User
+from django.http import HttpResponse
 
 # Create your views here.
 def create(request):
@@ -9,13 +10,10 @@ def create(request):
 
 def update(request):
 
-    editModeData = User.objects.get(email=request.POST['email'])
+    editModeData = User.objects.get( =request.POST['email'])
     if request.method == "POST":
-
-        editModeData.status = request.POST['status']
+        editModeData.password = request.POST['password']
         editModeData.save()
-
-        return redirect('user_index')
+        return redirect('change_password')
     else:
-        content = {'editModeData': editModeData, 'form_data': request.POST};
-        return render(request, 'admin/users/edit.html',content)
+        return render(request, "admin/change_password/change_password.html")
