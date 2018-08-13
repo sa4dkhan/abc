@@ -174,6 +174,11 @@
                             <li><a href="{% url 'role_index' %}"><i class="fa-fw">R</i><span class="hide-menu">Add Role</span></a></li>
                         </ul>
                     </li>
+                    <li> <a href="forms.html" class="waves-effect"><i class="mdi mdi-clipboard-text fa-fw"></i> <span class="hide-menu">Profile<span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="{% url 'account:change_password' %}"><i class="fa-fw">R</i><span class="hide-menu">Reset Password</span></a></li>
+                        </ul>
+                    </li>
                     <li> <a href="#" class="waves-effect "><i class="mdi mdi-table fa-user"></i> <span class="hide-menu">Clients<span class="fa arrow"></span></span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="{% url 'client_info' %}"><i class="mdi mdi-clipboard-text fa-fw"></i><span class="hide-menu">Add Clients</span></a></li>

@@ -1,8 +1,13 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 from .views import create_lawyer, store_lawyer, lawyer_list, view_lawyer_update, delete_lawyer, update_form_action_lawyer
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+router.register('lawyer', views.LawyerView)
 
 urlpatterns = [
+    path('/api/', include(router.urls)),
     path('', views.index, name='dashboard_index'),
     path('/create_lawyer', create_lawyer, name='create_lawyer'),
     path('/store_lawyer', store_lawyer, name='store_lawyer'),

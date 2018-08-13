@@ -2,10 +2,13 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import UserForm, UserProfileInfoForm
+from .forms import UserForm, UserProfileInfoForm, PasswordForm
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
+
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 
 
 def signup_view(request):
@@ -69,3 +72,19 @@ def logout_view(request):
         messages.warning(request, 'Your are not logged out due to an error: {}'.format(e))
     return redirect('dashboard_index')
 
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user) #important
+            messages.success(request, 'Your password successfully updated!')
+            return redirect('account:login')
+        else:
+            messages.error(request, 'Please correct the error below.')
+
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, 'account/change_password.html', {'form': form})
