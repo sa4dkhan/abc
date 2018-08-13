@@ -1,0 +1,104 @@
+
+{% extends 'admin/master.html' %}
+{% load static from staticfiles %}
+
+{% block title %} Edit User {% endblock %}
+
+{% block mainbody %}
+       
+    <div class="row bg-title">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <ol class="breadcrumb">
+                <li class="active breadcrumbColor"><a href="#"><i class="fa fa-home"></i> Dashboard</a></li>
+                <li>Add User</li>
+
+            </ol>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <a href="{% url 'user_index' %}"  class="btn btn-info pull-right m-l-20 waves-effect waves-light"><i class="fa fa-list-ul" aria-hidden="true"></i>  View Users </a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-info">
+                <div class="panel-heading"><i class="mdi mdi-clipboard-text fa-fw"></i> Edit User</div>
+                <div class="panel-wrapper collapse in" aria-expanded="true">
+                    <div class="panel-body">
+
+                         <form action="{% url 'user_update' edit_mode_data.id %}"  method="post">
+                             {% csrf_token %}
+                            <div class="form-body">
+                               <div class="row">
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Role<span class="required_field">*</span></label>
+                                            <select name="role_id"  class="form-control">
+                                             <option value="">Select Role</option>
+                                                {% for role in roles %}
+
+                                                      {% if role.id == edit_mode_data.role_id %}
+                                                         <option value="{{ role.id }}" selected>{{ role.role_name }}</option>
+                                                      {% else %}
+                                                         <option value="{{ role.id }}">{{ role.role_name }}</option>
+                                                      {% endif %}
+
+                                                {% endfor %}
+                                            </select>
+                                            <span class="validation_error">{{ form.errors.role_id }}</span>
+                                        </div>
+                                    </div>
+
+                                   <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Full Name<span class="required_field">*</span></label>
+                                                <input type="text" class="form-control" name="full_name" placeholder="Enter Full Nmae" value="{{ edit_mode_data.full_name}}">
+                                                <span class="validation_error">{{ form.errors.full_name }}</span>
+                                        </div>
+                                    </div>
+
+                                   <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Email<span class="required_field">*</span></label>
+                                                <input type="text" class="form-control" name="email" placeholder="Enter Email" value="{{ edit_mode_data.email}}">
+                                                <span class="validation_error">{{ form.errors.email }}</span>
+                                        </div>
+                                    </div>
+
+
+                                   <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="control-label">Status<span class="required_field">*</span></label>
+                                            <select name="status"  class="form-control">
+                                             <option value="1" {% if edit_mode_data.status == 1 %} {{ "selected" }} {% endif %} >Active </option>
+                                             <option value="0"  {% if edit_mode_data.status == 0 %} {{ "selected" }} {% endif %}>Inactive</option>
+                                            </select>
+                                            <span class="validation_error">{{ form.errors.status }}</span>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class=" col-md-9">
+                                                <button type="submit" class="btn btn-info btn_style "><i class="fa fa-check"></i> Save</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+     
+			
+{% endblock mainbody %}

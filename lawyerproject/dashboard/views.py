@@ -2,9 +2,12 @@ from django.shortcuts import render, redirect
 from .models import Client
 from .forms import ClientForm
 from django.http import HttpResponse
-from pprint import pprint
-from django.http import JsonResponse
-from django.template.loader import render_to_string
+from django.utils.datastructures import MultiValueDictKeyError
+# from pprint import pprint
+# from django.http import JsonResponse
+# from django.template.loader import render_to_string
+# from django.contrib.auth.decorators import login_required
+# from django.http import HttpResponseRedirect
 
 
 def index(request):
@@ -27,9 +30,15 @@ def client_info(request):
 
 
 def store_client(request):
+    try:
+        filepath = request.FILES['client_pic']
+    except MultiValueDictKeyError:
+        filepath = False
     if request.method == "POST":
         data = Client.objects.create()
-        data.client_pic = request.FILES['client_pic']
+        #data.client_pic = request.FILES['client_pic']
+        if filepath != False :
+            data.client_pic = request.FILES['client_pic']
         data.first_name = request.POST['first_name']
         data.last_name = request.POST['last_name']
         data.mobile_number = request.POST['mobile_number']
@@ -58,11 +67,15 @@ def update_client(request, id):
 
 
 def update_form_action(request,id):
-
+    try:
+        filepath = request.FILES['client_pic']
+    except MultiValueDictKeyError:
+        filepath = False
     client = Client.objects.get(id=id)
     form = ClientForm(request.POST or None, instance=client)
     if request.method == "POST":
-        client.client_pic = request.FILES['client_pic']
+        if filepath != False :
+            client.client_pic = request.FILES['client_pic']
         client.first_name = request.POST['first_name']
         client.last_name = request.POST['last_name']
         client.mobile_number = request.POST['mobile_number']
@@ -74,17 +87,25 @@ def update_form_action(request,id):
 
 
 def update_profile(request, id):
+    try:
+        filepath = request.FILES['client_pic']
+    except MultiValueDictKeyError:
+        filepath = False
     client = Client.objects.get(id=id)
     form = ClientForm(request.POST or None, instance=client)
+    client_id = client.id
+    #picture = client.client_pic
     if request.method == "POST":
-        client.client_pic = request.FILES['client_pic']
+        if filepath != False :
+            client.client_pic = request.FILES['client_pic']
         client.first_name = request.POST['first_name']
         client.last_name = request.POST['last_name']
         client.mobile_number = request.POST['mobile_number']
-        client.email_address = request.POST['email_number']
+        client.email_address = request.POST['email_address']
         client.save()
-        return redirect('dashboard_index')
-    return render(request, 'clients/update_profile_info.html', {'client': client})
+        return redirect('update_profile', client_id)
+    # return HttpResponseRedirect('/accounts/private_profile/%d/' % request.user.id)
+    return render(request, 'clients/update_profile_info.html', {'form': form, 'client': client})
 
 
 def view_profile(request, id):
@@ -108,5 +129,8 @@ def delete_client(request, id):
         return HttpResponse('success')
     except Exception as e:
         return redirect('client_list')
+
+
+
 
 

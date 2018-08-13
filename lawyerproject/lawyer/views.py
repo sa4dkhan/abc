@@ -3,12 +3,37 @@ from django.http import HttpResponse
 from rest_framework import viewsets
 from .serializers import LawyerSerializer
 from .models import Lawyer
+from dashboard.models import Client
+from itertools import chain
+from django.shortcuts import render
+from .forms import SearchForm
+# from .forms import SearchForm1
+# import operator
+# from django.db.models import Q
 from .forms import LawyerForm
+# from django.http import HttpResponseRedirect
 
 
 class LawyerView(viewsets.ModelViewSet):
     queryset = Lawyer.objects.all()
     serializer_class = LawyerSerializer
+
+
+# @render('search.html')
+def search(request):
+    form = SearchForm(request.GET or {})
+    # form1 = SearchForm1(request.GET or {})
+    if form.is_valid():
+        results = form.get_queryset()
+                  # and form1.get_queryset()
+    else:
+        results = Lawyer.objects.none()
+        # results = (list(chain(Lawyer.objects.all(), Client.objects.all())))
+    return render(request, 'search.html', {'form': form, 'results': results})
+    # return {
+    #     'form': form,
+    #     'results': results,
+    # }
 
 
 def index(request):
@@ -77,3 +102,26 @@ def update_form_action_lawyer(request, id):
     }
 
     return render(request, 'lawyer/update-lawyer.html', context)
+
+
+
+# class BlogSearchListView(BlogListView):
+#     """
+#     Display a Blog List page filtered by the search query.
+#     """
+#     paginate_by = 10
+#
+#     def get_queryset(self):
+#         result = super(BlogSearchListView, self).get_queryset()
+#
+#         query = self.request.GET.get('q')
+#         if query:
+#             query_list = query.split()
+#             result = result.filter(
+#                 reduce(operator.and_,
+#                        (Q(title__icontains=q) for q in query_list)) |
+#                 reduce(operator.and_,
+#                        (Q(content__icontains=q) for q in query_list))
+#             )
+#
+#         return result

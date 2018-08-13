@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+{#.buttonSearch{#}
+{#    padding: 10px;#}
+{#  font-size: 17px;#}
+{#  border: 1px solid grey;#}
+{#  float: left;#}
+{#  width: 80%;#}
+{#  background: #f1f1f1;#}
+{#}#}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Search Lawyer's Information</h1>
+     <form id="searchform" action="{% url 'search' %}" method="get" accept-charset="utf-8">
+      <button class="btn-danger" value="search" type="submit">
+{#        <i class="fa fa-search"></i>#}Search
+      </button>
+      <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search">
+    </form>
+    <br>
+</div>
+
+{% if results %}
+<ul class="messages">
+    {% for k in results %}
+        <li style="color: red">{{ k.first_name }} {{ k.last_name }} {{ k.speciality }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+<div style="color: blue;">
+    {% if results %}
+        {% for k in sr %}
+            <table>
+                <tr>{{ results.first_name }} {{ results.last_name }}</tr>
+
+            </table>
+        {% endfor %}
+    {% endif %}
+</div>
+</body>
+</html>

@@ -15,7 +15,7 @@ urlpatterns = [
     path('account/', include('account.urls')),
     path('client/', include('dashboard.urls')),
     path('users/', include('users.urls')),
-
+    path('change_password/', include('change_password.urls')),
 ]
 
 if settings.DEBUG:
