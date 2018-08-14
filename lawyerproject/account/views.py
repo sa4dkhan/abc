@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from .forms import UserForm, UserProfileInfoForm, PasswordForm
+from .forms import UserForm, UserProfileInfoForm
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect, HttpResponse
@@ -76,7 +76,7 @@ def logout_view(request):
 @login_required
 def change_password(request):
     if request.method == 'POST':
-        form = PasswordForm(request.user, request.POST)
+        form = PasswordChangeForm(request.user, request.POST)
         if form.is_valid():
             user = form.save()
             update_session_auth_hash(request, user) #important
