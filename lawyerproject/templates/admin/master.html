@@ -136,9 +136,9 @@
                             <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
                             <li role="separator" class="divider"></li>
                             {% if user.is_authenticated %}
-                                <li><a href="{% url 'account:logout' %}"><i class="fa fa-power-off"></i> Logout</a></li>
+                                <li><a href="{% url 'logout' %}"><i class="fa fa-power-off"></i> Logout</a></li>
                             {% else %}
-                                <li><a href="{% url 'account:login' %}"><i class="fa fa-power-off"></i> Login</a></li>
+                                <li><a href="{% url 'login' %}"><i class="fa fa-power-off"></i> Login</a></li>
                             {% endif %}
                         </ul>
                         <!-- /.dropdown-user -->
@@ -184,7 +184,7 @@
 
                     <li> <a href="forms.html" class="waves-effect"><i class="mdi mdi-clipboard-text fa-fw"></i> <span class="hide-menu">Profile<span class="fa arrow"></span></span></a>
                         <ul class="nav nav-second-level">
-                            <li><a href="{% url 'account:change_password' %}"><i class="fa-fw">R</i><span class="hide-menu">Change Password</span></a></li>
+                            <li><a href="{% url 'change_password' %}"><i class="fa-fw">R</i><span class="hide-menu">Change Password</span></a></li>
                         </ul>
                     </li>
 

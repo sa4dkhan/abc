@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'role',
     'lawyer',
     'users',
-    'change_password',
+    'change_password'
 
 ]
 
@@ -169,3 +169,27 @@ DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': lambda r: False,  # disables it
     # '...
 }
+
+# AUTHENTICATION_BACKENDS = ['path.to.auth.module.EmailBackend']
+
+# AUTH_USER_MODEL = 'account.CustomUser'
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGOUT_REDIRECT_URL = 'login'
+
+# my_project/settings.py
+# EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+# EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+
+EMAIL_HOST = '174.136.29.40'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'saad.khan@nextdot.com.au'
+EMAIL_HOST_PASSWORD = 'tDhIY6]UZ3+{'
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'Match a Lawyer Team <saad.khan@nextdot.com.au>'
+
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = '174.136.29.40'
+# EMAIL_HOST_USER = 'saad.khan@nextdot.com.au'
+# EMAIL_HOST_PASSWORD = 'tDhIY6]UZ3+{'
+# EMAIL_PORT = 587
